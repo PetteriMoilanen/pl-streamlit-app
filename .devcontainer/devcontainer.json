@@ -1,32 +1,32 @@
 {
   "name": "Football App Dev Env",
-  // 1. Start with a clean, Microsoft-supported Python dev container
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
 
-  // 2. Install 'uv' and 'ruff' (for fast Python formatting/linting) via Devcontainer Features
   "features": {
     "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
     "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {}
   },
 
-  // 3. Keep VS Code extensions pre-installed inside the Codespace
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        // Absolute container workspace path
+        "python.defaultInterpreterPath": "/workspaces/pl-streamlit-app/.venv/bin/python",
         "python.testing.pytestEnabled": true
       },
       "extensions": [
-        "ms-python.python",        // Python language support
-        "charliermarsh.ruff",      // Ruff linter integration
-        "tamasfe.even-better-toml" // Formatting for pyproject.toml / secrets.toml
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "tamasfe.even-better-toml"
       ]
     }
   },
 
-  // 4. Create the virtual environment and sync packages as soon as the container is ready
+  // Runs once when the container is first created
   "postCreateCommand": "uv sync",
+  
+  // Runs every time the Codespace starts up to refresh packages
+  "postStartCommand": "uv sync",
 
-  // Ensure Codespaces runs as the non-root 'vscode' user for security/permissions
   "remoteUser": "vscode"
 }
