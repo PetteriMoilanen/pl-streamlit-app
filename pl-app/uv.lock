@@ -163,6 +163,9 @@ requires-dist = [
     { name = "sqlalchemy", specifier = ">=2.0.51" },
 ]
 
+[package.metadata.requires-dev]
+dev = []
+
 [[package]]
 name = "psycopg2-binary"
 version = "2.9.12"

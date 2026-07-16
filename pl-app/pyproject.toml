@@ -9,3 +9,6 @@ dependencies = [
     "psycopg2-binary>=2.9.12",
     "sqlalchemy>=2.0.51",
 ]
+# This tells uv to treat the root folder as a package automatically
+[dependency-groups]
+dev = []
