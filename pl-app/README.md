@@ -9,3 +9,4 @@
     - Did the alembic init.
 - 16.7.2025
     - Signed up for Aiven and created a Postgre service.
+    - Added Aiven connection string to repo and codespace secrets.
